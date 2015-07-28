@@ -1,0 +1,87 @@
+/*
+CSS STYLE CONFIG COLORS
+Version:
+    1.0 - LML creation
+	1.1 - update colors
+*/
+
+
+/* <BODY> */
+body {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif ;
+	font-size: small;
+	text-align: left;
+}
+
+
+/* BOX-BASE */
+.box0 {
+	padding: 4px 4px 4px 4px;
+	margin: 4px 4px 4px 4px;
+	border: 1px #DFDEDE solid;
+	background-color: #F5F5F5;
+	border-radius: 0.9em;
+}
+
+
+/* BOX-TITLE */
+.box1 {
+	font-size: small;
+	text-align: left;
+	padding: 4px 4px 4px 4px;
+	margin: 4px 4px 4px 4px;
+	border: 1px #DFDEDE solid;
+	background-color: #E5E5E5;
+	border-radius: 0.9em;
+}
+
+
+/* BOX-SELECTION */
+.box2 {
+	padding: 4px 4px 4px 4px;
+	margin: 4px 4px 4px 4px;
+	background-color: #EEEEEE;
+	border: 1px #DFDEDE solid;
+	border-radius: 0.9em;
+	/*float: right;*/
+}
+.box2:hover{
+	background-color: #E5E5E5;
+	border-radius: 0.9em;
+}
+
+
+.button {
+	width: 100px;
+	padding: 4px 4px 4px 4px;
+	margin: 4px 4px 4px 4px;
+	background-color: #55AAFF;
+	color:#FFF;
+	border-radius: 0.9em;
+	/*float: right;*/
+}
+
+#description {
+	width: 300px;
+	text-align: center;
+	background-color: #FFFFCC;
+}
+
+
+
+table {
+    border-collapse: collapse;
+}
+
+table, th, td {
+    border: 1px solid #556677;
+}
+td {
+    padding: 12px;
+	border: 1px solid green;
+	background-color: #EEFFEE;
+    color: #000;
+}
+
+
+

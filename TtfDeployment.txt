@@ -1,0 +1,107 @@
+================================================================================================
+                                           TTF Deployment Project
+================================================================================================
+                                                                                       July 2015 
+
+
+
+
+================================================================================================
+                                           PROGRAMS
+================================================================================================
+
+Daemon
+	C:\area6\java\dev\desktop\LMLJDaemon02\*
+	GOAL:
+		unzip from A: to A:
+		Insert info into derby:TTF.MINING
+
+J2EE-Web
+	C:\area6\java\bin\tomcat7\webapps\ttfdeployment\*
+	Tomcat 7 J2EE
+		Search Report data mining
+		file upload (zip)
+
+
+
+		
+		
+		
+		
+================================================================================================
+                                     DATA BASE
+================================================================================================
+
+
+FIELDS
+	ID          
+	UUAA        
+	mantis      
+	ar          
+	pimp        
+	pimpversion 
+	project     
+	DE1         
+	DE2         
+	EI1         
+	EI2         
+	PP1         
+	PP2         
+	PR1         
+	PR2         
+	remedy      
+	component   
+	path        
+	description 
+
+
+------------------------------------------------------------------------------------ CREATE SCHEMA
+		
+CREATE SCHEMA TTF
+
+------------------------------------------------------------------------------------ CREATE TABLE
+
+CREATE TABLE TTF.MINING (
+	ID           INT ,
+	UUAA         CHAR(4) ,
+	mantis       CHAR(6) ,
+	ar           CHAR(6) ,
+	pimp         CHAR(6) ,
+	pimpversion  INT ,
+	project      CHAR(2) ,
+	DE1          INT ,
+	DE2          INT ,
+	EI1          INT ,
+	EI2          INT ,
+	PP1          INT ,
+	PP2          INT ,
+	PR1          INT ,
+	PR2          INT ,
+	remedy       CHAR(80) ,
+	component    CHAR(24) ,
+	path         CHAR(200) ,
+	description  CHAR(250) 	
+)
+
+------------------------------------------------------------------------------------------------ INSERT
+
+INSERT INTO TTF.MINING (ID,mantis,project,DE1,component,path,description)
+ VALUES ( 1,'as','as',20150712,'as','as','as');
+
+INSERT INTO TTF.MINING (id,mantis,project,DE1,component,path,description) VALUES (vid,vmantis,vproject,vDE1,vcomponent,vpath,vdescription);
+
+
+------------------------------------------------------------------------------------------------ QUERY
+
+SELECT * FROM TTF.MINING ;
+
+
+SELECT * FROM TTF.MINING WHERE component LIKE '%7%' ;
+
+
+
+
+
+
+
+
