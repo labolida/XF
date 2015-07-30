@@ -3,9 +3,9 @@
 	"-//Sun Microsystems, Inc.//DTD Web Application 2.2//EN"
 	"http://java.sun.com/j2ee/dtds/web-app_2_3.dtd">
 
-<web-app id="ttfdeployme">
+<web-app id="XF">
 
-	<display-name>ttfdeployme</display-name>
+	<display-name>XF</display-name>
 	<description></description>
 	
 	

@@ -2,8 +2,7 @@
                                            TTF Deployment Project
 ================================================================================================
                                                                                        July 2015 
-
-BBVA.CIB.TTF.Deployment
+                                                                         BBVA.CIB.TTF.Deployment
 
 
 ================================================================================================
@@ -11,27 +10,19 @@ BBVA.CIB.TTF.Deployment
 ================================================================================================
 
 Daemon
-	C:\area6\java\dev\desktop\LMLJDaemon02\*
-	GOAL:
-		unzip from A: to A:
-		Insert info into derby:TTF.MINING
+	unzip from A: to A:
+	Insert info into derby:TTF.MINING
 
 J2EE-Web
-	C:\area6\java\bin\tomcat7\webapps\ttfdeployment\*
+	C:\area6\java\bin\tomcat7\webapps\FX\*
 	Tomcat 7 J2EE
 		Search Report data mining
 		file upload (zip)
-
-
-
-		
-		
 		
 		
 ================================================================================================
                                      DATA BASE
 ================================================================================================
-
 
 FIELDS
 	ID          
@@ -60,27 +51,59 @@ FIELDS
 CREATE SCHEMA TTF
 
 ------------------------------------------------------------------------------------ CREATE TABLE
+DROP TABLE TTF.MINING_FILE ;
+DROP TABLE TTF.MINING_MANTIS ;
+DROP TABLE TTF.MINING_DIMENSIONS ;
 
-CREATE TABLE TTF.MINING (
-	ID           INT ,
-	UUAA         CHAR(4) ,
-	mantis       CHAR(6) ,
-	ar           CHAR(6) ,
-	pimp         CHAR(6) ,
-	pimpversion  INT ,
-	project      CHAR(2) ,
-	DE1          INT ,
-	DE2          INT ,
-	EI1          INT ,
-	EI2          INT ,
-	PP1          INT ,
-	PP2          INT ,
-	PR1          INT ,
-	PR2          INT ,
-	remedy       CHAR(80) ,
-	component    CHAR(24) ,
+CREATE TABLE TTF.MINING_FILE (
+	ID                 INT ,
+	UUAA           CHAR(4) ,
+	mantis         CHAR(6) ,
+	ar             CHAR(6) ,
+	pimp           CHAR(6) ,
+	project        CHAR(2) ,
+	remedy        CHAR(80) ,
+	component     CHAR(24) ,
 	path         CHAR(200) ,
-	description  CHAR(250) 	
+	version           INT  ,
+	description  CHAR(250) ,
+	date_DE1           INT ,
+	date_DE2           INT ,
+	date_EI1           INT ,
+	date_EI2           INT ,
+	date_PP1           INT ,
+	date_PP2           INT ,
+	date_PR1           INT ,
+	date_PR2           INT 
+)
+
+CREATE TABLE TTF.MINING_MANTIS (
+	ID             INT ,
+	UUAA           CHAR(4) ,
+	mantis         CHAR(6) ,
+	ar             CHAR(6) ,
+	pimp           CHAR(6) ,
+	project        CHAR(2) ,
+	remedy       CHAR(80)  ,
+	component    CHAR(24)  ,
+	path         CHAR(200) ,
+	version      INT       ,
+	description  CHAR(250) ,	
+)
+
+CREATE TABLE TTF.MINING_DIMENSIONS (
+	ID             INT ,
+	UUAA           CHAR(4) ,
+	mantis         CHAR(6) ,
+	ar             CHAR(6) ,
+	pimp           CHAR(6) ,
+	project        CHAR(2) ,
+	component    CHAR(24)  ,
+	path         CHAR(200) ,
+	version      INT       ,
+	description  CHAR(250) ,	
+	server1        CHAR(4) ,
+	server2        CHAR(4) 
 )
 
 ------------------------------------------------------------------------------------------------ INSERT
@@ -88,7 +111,8 @@ CREATE TABLE TTF.MINING (
 INSERT INTO TTF.MINING (ID,mantis,project,DE1,component,path,description)
  VALUES ( 1,'as','as',20150712,'as','as','as');
 
-INSERT INTO TTF.MINING (id,mantis,project,DE1,component,path,description) VALUES (vid,vmantis,vproject,vDE1,vcomponent,vpath,vdescription);
+INSERT INTO TTF.MINING_FILE (id, UUAA , mantis , project ,date_DE1, component , path , description ) 
+                     VALUES (id,'UUAA','mantis','project',date_DE1,'component','path','description') 
 
 
 ------------------------------------------------------------------------------------------------ QUERY
@@ -98,7 +122,7 @@ SELECT * FROM TTF.MINING ;
 
 SELECT * FROM TTF.MINING WHERE component LIKE '%7%' ;
 
-
+DELETE * FROM TTF.MINING ;
 
 
 

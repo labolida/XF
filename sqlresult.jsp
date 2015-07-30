@@ -14,7 +14,7 @@
 	<table>
 		<tr>
 			<td>sql</td>
-			<td> <TEXTAREA rows="4" cols="50" name="sql">select * from  TTF.MINING</TEXTAREA> </td>
+			<td> <TEXTAREA rows="4" cols="50" name="sql">select * from  TTF.MINING_FILE</TEXTAREA> </td>
 		</tr>
 		<tr>
 			<td></td>
