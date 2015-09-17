@@ -14,7 +14,7 @@
 	<table>
 		<tr>
 			<td>sql</td>
-			<td> <TEXTAREA rows="4" cols="50" name="sql">select * from  TTF.MINING_FILE</TEXTAREA> </td>
+			<td> <TEXTAREA rows="4" cols="50" name="sql">select * from ttf_deploy.request</TEXTAREA> </td>
 		</tr>
 		<tr>
 			<td></td>
@@ -29,18 +29,19 @@
 <table>
 <%
 		try{
-			String cachedResult[][] = (String[][]) request.getAttribute("cachedResult");
-			for (int row=0; row<=cachedResult.length-1 ; row++) {
+			java.util.ArrayList list = (java.util.ArrayList) request.getAttribute("list");
+			
+			for (int x=0; x<list.size(); x++) {
+				java.util.HashMap mapbean = (java.util.HashMap) list.get(x);
+				//mapbean.get(1);
 				out.print("<tr>");
-				for (int col=0; col<=18 ; col++) {
-					if ( cachedResult[row][col]==null ) {
-						out.print( "<td>.</td>" );
-					}else{
-						out.print( "<td>" + cachedResult[row][col]  + "</td>" );
-					}
+				for (int fk=1; fk<=9 ; fk++) {
+					out.print( "<td>" + mapbean.get(fk)  + "</td>" );
 				}
 				out.print("</tr>");
 			}
+			
+			
 		}
 		catch(Exception e) {
 			out.print("<br>ERROR: " + e.getMessage() + "\n\n");

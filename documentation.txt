@@ -55,24 +55,30 @@ CREATE TABLE
  
  SELECT * FROM ttf_deploy.dimensions   
 
+----------------------------------------- table request
 
+DROP TABLE  ttf_deploy.request 
+;
 
- 
- 
 CREATE TABLE 
 	ttf_deploy.request (
-						id      INT ,
-						date    INT ,
+						id       INT ,
+						filedate INT ,
+						filedateversion INT ,
+						date     INT ,
 						ar      VARCHAR(8) ,
 						mantis  VARCHAR(8) ,
 						uuaa    VARCHAR(4) ,
 						path    VARCHAR(255),
-						file    VARCHAR(255)
+						filename    VARCHAR(255)
 						)	;
 	
 
+id,filedate,filedateversion,date,ar,mantis,uuaa,path,filename
 
- 
+
+select * from ttf_deploy.request
+
 ------------------------------------------------------------------------------------ OLD
 		
 CREATE SCHEMA TTF

@@ -85,13 +85,13 @@ public class Daemon {
 			// UnZip file
 			LOG   ("Daemon.execute: Unzipping file : "   +  pathfilenamezip );
 			ArrayList<String> listOfUnzipped = unzip ( pathfilenamezip ,  dirName );
-
+			
 			
 			// Delete zip
 			if ( new File(pathfilenamezip).delete() ==false ) {
 				LOG("Daemon.execute: ERROR : Problem deleting file:" + pathfilenamezip );
 			}
-
+			
 			
 			// Properties
 			String propertyDirFileName = dirName+"/deploy.properties";
@@ -101,26 +101,33 @@ public class Daemon {
 			LOG("Daemon.execute: properties.file:" + propertyDirFileName );
 			LOG("Daemon.execute: properties.value_path:" + value_path );
 			LOG("Daemon.execute: properties.value_description:" + value_description );
-
 			
-			// CREATE SQL INSERT
+			
+			// CREATE SQL INSERT for each component
 			for (int x=0; x<listOfUnzipped.size(); x++){    // list of components/files
-				//String sql = "INSERT INTO TTF.MINING (id,mantis,project,DE1,component,path,description) VALUES (vid,'vmantis','vproject',vDE1,'vcomponent','vpath','vdescription')";
-				String sql1="INSERT INTO TTF_DEPLOY.MINING_FILE (id, UUAA , mantis , project ,date_DE1, component , path , description ) ";
-				String sql2=                     "VALUES (id,'UUAA','mantis','project',date_DE1,'component','path','description') ";
 				String fields[] = simpleFileName.split("-");     // KKYT-20150701-01-4422-55334.zip
-				sql2 = sql2.replaceAll("id"         , new Integer(autonumber).toString() ); autonumber++;
-				sql2 = sql2.replaceAll("UUAA"       , fields[0]);
-				sql2 = sql2.replaceAll("mantis"     , fields[3] );
-				sql2 = sql2.replaceAll("project"    , "" );
-				sql2 = sql2.replaceAll("date_DE1"   , getFormatedDate() );   //YYYYMMDD
-				sql2 = sql2.replaceAll("component"  , listOfUnzipped.get(x) );
-				sql2 = sql2.replaceAll("path"       , value_path );
-				sql2 = sql2.replaceAll("description", value_description );
-				String sql=sql1+sql2;
+				StringBuffer sql = new StringBuffer();
+				
+				sql.append("INSERT INTO ttf_deploy.request ( id,filedate,filedateversion,date,ar,mantis,uuaa,path,filename ) VALUES ( " );
+				
+				sql.append( ""+ new Integer(autonumber).toString() ); // ID
+				sql.append( ","+ fields[1] );                          // filedate
+				sql.append( ","+ fields[2] );                          // filedateversion
+				sql.append( ","+ getFormatedDate() );                  // YYYYMMDD
+				sql.append( ",'"+ fields[4] +"'");                     // ar
+				sql.append( ",'"+ fields[3] +"'");                     // mantis
+				sql.append( ",'"+ fields[0]  +"'");                    // UUAA
+				sql.append( ",'pendiente'");// value_path );           // path
+				sql.append( ",'"+ listOfUnzipped.get(x) +"'" );        // filename
+				sql.append( ")" );
+				
+				autonumber++;
+				
 				LOG( "SQL:" + sql );
-				JDBC(sql); 
-			}
+				JDBC( new String(sql) );
+				
+			}//forEach File+Sql
+			
 		}
 		catch(Exception e){
 			System.out.println( "Error at main method : " + e.getMessage() );
