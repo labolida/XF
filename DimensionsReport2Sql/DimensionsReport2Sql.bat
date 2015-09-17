@@ -1,0 +1,1 @@
+java -cp C:\area6\java\dev\desktop\DimensionsReport2Sql\bin\ com.labolida.leonardo.dimensionsql.DimensionSql

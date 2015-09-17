@@ -1,0 +1,27 @@
+CREATE SCHEMA ttf_deploy ;
+
+DROP TABLE ttf_deploy.dimensions ;
+
+CREATE TABLE 
+	ttf_deploy.dimensions (
+			PRODUCT              VARCHAR(8) ,
+			ID                   VARCHAR(22),
+			TITLE                VARCHAR(150),
+			STATUS               VARCHAR(5) ,
+			STAGE_ID             VARCHAR(5) ,
+			ESTADO_PROMOCION     VARCHAR(20),
+			PHASE                VARCHAR(20),
+			FECHA_IMPLANTACION   VARCHAR(22),
+			FULLPATH             VARCHAR(180),
+			FILE                 VARCHAR(80),
+			UPDATE_DATE          VARCHAR(22),
+			REVISION             VARCHAR(20),
+			LENGTH               VARCHAR(20)
+	)
+	;
+	
+	
+
+ DELETE FROM ttf_deploy.dimensions   
+ 
+ SELECT * FROM ttf_deploy.dimensions   

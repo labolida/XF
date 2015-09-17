@@ -15,6 +15,7 @@ import java.util.Properties;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+
 public class Daemon {
 
 	private static String path ;        
@@ -105,7 +106,7 @@ public class Daemon {
 			// CREATE SQL INSERT
 			for (int x=0; x<listOfUnzipped.size(); x++){    // list of components/files
 				//String sql = "INSERT INTO TTF.MINING (id,mantis,project,DE1,component,path,description) VALUES (vid,'vmantis','vproject',vDE1,'vcomponent','vpath','vdescription')";
-				String sql1="INSERT INTO TTF.MINING_FILE (id, UUAA , mantis , project ,date_DE1, component , path , description ) ";
+				String sql1="INSERT INTO TTF_DEPLOY.MINING_FILE (id, UUAA , mantis , project ,date_DE1, component , path , description ) ";
 				String sql2=                     "VALUES (id,'UUAA','mantis','project',date_DE1,'component','path','description') ";
 				String fields[] = simpleFileName.split("-");     // KKYT-20150701-01-4422-55334.zip
 				sql2 = sql2.replaceAll("id"         , new Integer(autonumber).toString() ); autonumber++;
@@ -164,6 +165,8 @@ public class Daemon {
 			return false;
 		}
 	}
+	
+	
 	
 	private static String getFormatedDate() {
 		try {
