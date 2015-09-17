@@ -26,27 +26,18 @@
 	</table>
 	
 </form>
-v2
+
 <table>
 <%
 	try{
 		com.labolida.components.LMLJDBCOMM db = new com.labolida.components.LMLJDBCOMM();
 		java.util.ArrayList list = (java.util.ArrayList) db.execute("select * from ttf_deploy.request");
-		String oldvalue[] = new String[20];
 		
 		for (int x=0; x<list.size(); x++) {
 			java.util.HashMap reg = (java.util.HashMap) list.get(x);
 			out.print("<tr>");
 			for (int fk=1; fk<=reg.size() ; fk++) {
-				String value = (String) reg.get(fk) ; 
-				if (oldvalue[fk]==null) 
-					oldvalue[fk]="";
-				if (!oldvalue[fk].equals(value) ) {
-					out.print( "<td><b>" + value  + "</b></td>" );
-					oldvalue[fk]=value;
-				}else{
-					out.print( "<td>" + value  + "</td>" );
-				}
+				out.print( "<td>" + reg.get(fk)  + "</td>" );
 			}
 			out.print("</tr>");
 		}

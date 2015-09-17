@@ -79,6 +79,27 @@ id,filedate,filedateversion,date,ar,mantis,uuaa,path,filename
 
 select * from ttf_deploy.request
 
+------------------------------------------------------------------------------------ INSERT EXAMPLES REQUEST
+
+INSERT INTO ttf_deploy.request ( id,filedate,filedateversion,date,ar,mantis,uuaa,path,filename ) VALUES ( 9,20150730,01,20150914,'0AR','4433','KKYX','pendiente','filename01.txt');
+INSERT INTO ttf_deploy.request ( id,filedate,filedateversion,date,ar,mantis,uuaa,path,filename ) VALUES ( 9,20150730,01,20150914,'0AR','4433','KKYX','pendiente','filename02.txt');
+INSERT INTO ttf_deploy.request ( id,filedate,filedateversion,date,ar,mantis,uuaa,path,filename ) VALUES ( 9,20150730,01,20150914,'0AR','4433','KKYX','pendiente','filename03.txt');
+
+
+select * from ttf_deploy.request
+
+
+
+
+
+
+
+
+
+
+
+
+
 ------------------------------------------------------------------------------------ OLD
 		
 CREATE SCHEMA TTF

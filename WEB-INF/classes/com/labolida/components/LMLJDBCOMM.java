@@ -20,23 +20,34 @@ public class LMLJDBCOMM {
 			Statement stmt = conn.createStatement();
 			ResultSet rs = stmt.executeQuery(sql);
 			
-			HashMap reg = new HashMap();
-			
 			DatabaseMetaData  dbmeta = conn.getMetaData();
 			ResultSetMetaData rsmeta =   rs.getMetaData();
 			
-			for (int c=1; c<rsmeta.getColumnCount(); c++ ) {
+			HashMap reg0 = new HashMap();
+			for (int c=1; c<=rsmeta.getColumnCount(); c++ ) {
 				String comumnname = rsmeta.getColumnName(c);
-				reg.put(c, comumnname);
+				reg0.put(c, comumnname);
 			}
-			list.add(reg);
+			list.add(reg0);
 			
 			while( rs.next()  ) {
-				for (int c=1; c<rsmeta.getColumnCount(); c++ ) {
+				HashMap reg = new HashMap();
+				for (int c=1; c<=rsmeta.getColumnCount(); c++ ) {
 					reg.put(c,  rs.getString(c) );
 				}
 				list.add(reg);
 			}
+			
+			
+			System.out.println("Test project XF::LMLJDBCOMM.execute()");
+			for (int x=0; x<list.size(); x++) {
+				System.out.println( "-" );
+				HashMap reg2 = (java.util.HashMap) list.get(x);
+				for (int fk=1; fk<=reg2.size() ; fk++) {
+					System.out.println( "reg:" + reg2.get(fk) );
+				}
+			}
+			
 			rs.close();
 			stmt.close();
 			conn.close();
